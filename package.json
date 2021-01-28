@@ -1,0 +1,67 @@
+{
+	"name": "active-win",
+	"version": "6.2.0",
+	"description": "Get metadata about the active window (title, id, bounds, owner, URL, etc). Works on macOS, Linux, Windows.",
+	"license": "MIT",
+	"repository": "sindresorhus/active-win",
+	"funding": "https://github.com/sponsors/sindresorhus",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "https://sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"os":["darwin"],
+	"scripts": {
+		"test": "xo && ava && tsd",
+		"build": "xcodebuild -arch x86_64 -arch arm64 -configuration Release -project ActiveWinHelper/ActiveWinHelper.xcodeproj CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO  && mkdirp bin &&  ncp ActiveWinHelper/build/release/ActiveWinHelper ./bin/ActiveWinHelper",
+		"postinstall": "npm run build"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts",
+		"lib",
+		"main"
+	],
+	"xo": {
+		"rules": {
+			"unicorn/import-style": "off"
+		}
+	},
+	"keywords": [
+		"macos",
+		"app",
+		"application",
+		"window",
+		"win",
+		"active",
+		"focused",
+		"current",
+		"title",
+		"name",
+		"id",
+		"pid",
+		"screenshot",
+		"capture",
+		"metadata",
+		"bounds",
+		"memory",
+		"usage",
+		"bundleid",
+		"browser",
+		"url",
+		"chrome",
+		"safari",
+		"edge",
+		"brave"
+	],
+	"devDependencies": {
+		"ava": "^3.15.0",
+		"ncp": "^2.0.0",
+		"tsd": "^0.14.0",
+		"xo": "^0.37.1",
+		"mkdirp": "^1.0.4"
+	}
+}

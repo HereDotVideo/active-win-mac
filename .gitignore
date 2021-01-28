@@ -1,0 +1,4 @@
+node_modules
+/ActiveWinHelper/build
+/*.xcodeproj
+/bin
