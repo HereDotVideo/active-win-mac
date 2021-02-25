@@ -1,5 +1,5 @@
 {
-	"name": "active-win",
+	"name": "active-win-mac",
 	"version": "6.2.0",
 	"description": "Get metadata about the active window (title, id, bounds, owner, URL, etc). Works on macOS, Linux, Windows.",
 	"license": "MIT",
@@ -18,8 +18,8 @@
 	],
 	"scripts": {
 		"test": "xo && ava && tsd",
-		"build": "xcodebuild -arch x86_64 -arch arm64 -configuration Release -project ActiveWinHelper/ActiveWinHelper.xcodeproj CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO  && mkdirp bin && ncp ActiveWinHelper/build/release/ActiveWinHelper ./bin/ActiveWinHelper && rimraf ActiveWinHelper/build",
-		"postinstall": "yarn run build"
+		"build": "xcodebuild -arch x86_64 -arch arm64 -configuration Release -project ActiveWinHelper/ActiveWinHelper.xcodeproj CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO  && mkdirp bin &&  ncp ActiveWinHelper/build/release/ActiveWinHelper ./bin/ActiveWinHelper && rimraf ActiveWinHelper/build",
+		"postinstall": "npm run build"
 	},
 	"files": [
 		"index.js",
@@ -65,6 +65,6 @@
 		"ncp": "^2.0.0",
 		"rimraf": "^3.0.2",
 		"tsd": "^0.14.0",
-		"xo": "^0.38.1"
+		"xo": "^0.37.1"
 	}
 }
