@@ -13,11 +13,13 @@
 	"engines": {
 		"node": ">=12"
 	},
-	"os":["darwin"],
+	"os": [
+		"darwin"
+	],
 	"scripts": {
 		"test": "xo && ava && tsd",
-		"build": "xcodebuild -arch x86_64 -arch arm64 -configuration Release -project ActiveWinHelper/ActiveWinHelper.xcodeproj CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO  && mkdirp bin &&  ncp ActiveWinHelper/build/release/ActiveWinHelper ./bin/ActiveWinHelper",
-		"postinstall": "npm run build"
+		"build": "xcodebuild -arch x86_64 -arch arm64 -configuration Release -project ActiveWinHelper/ActiveWinHelper.xcodeproj CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO  && mkdirp bin && ncp ActiveWinHelper/build/release/ActiveWinHelper ./bin/ActiveWinHelper && rimraf ActiveWinHelper/build",
+		"postinstall": "yarn run build"
 	},
 	"files": [
 		"index.js",
@@ -59,9 +61,10 @@
 	],
 	"devDependencies": {
 		"ava": "^3.15.0",
+		"mkdirp": "^1.0.4",
 		"ncp": "^2.0.0",
+		"rimraf": "^3.0.2",
 		"tsd": "^0.14.0",
-		"xo": "^0.37.1",
-		"mkdirp": "^1.0.4"
+		"xo": "^0.38.1"
 	}
 }
